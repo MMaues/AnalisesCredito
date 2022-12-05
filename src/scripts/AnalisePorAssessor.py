@@ -4,7 +4,7 @@ from json import dumps
 from flask import Response
 from src.bd.connection import BuscaDados
 
-class analise_por_assessor(BuscaDados):
+class AnaliseAssessor(BuscaDados):
     def analise_assessor(self, token: str) -> Response:
         # Busca id
         resp_token: Response = self._validar_token(token)        

@@ -4,8 +4,8 @@ from json import dumps
 from flask import Response
 from src.bd.connection import BuscaDados
 
-class analise_por_cliente(BuscaDados):
-    def analise_cliente(self, token: str, id_user: str) -> Response:
+class AnaliseCliente(BuscaDados):
+    def AnaliseCliente(self, token: str, id_user: str) -> Response:
         # Busca id
         resp_token: Response = self._validar_token(token)        
         if resp_token.status_code != 200: return Response(resp_token.content, resp_token.status_code)

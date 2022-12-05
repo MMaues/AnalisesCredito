@@ -4,8 +4,8 @@ from flask_restful import Api
 
 from src.lib.cors import build_cors_response
 
-from src.scripts.AnalisePorCliente import analise_por_cliente
-from src.scripts.AnalisePorAssessor import analise_por_assessor
+from src.scripts.AnalisePorCliente import AnaliseCliente
+from src.scripts.AnalisePorAssessor import AnaliseAssessor
 
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ class Main():
         token: str = request.headers.get('Access-Token')
         id_user: str = request.headers.get('User-Id')
     
-        worker: analise_por_cliente = analise_por_cliente()
+        worker: AnaliseCliente = AnaliseCliente()
 
         return worker.analise_cliente(token, id_user)
 
@@ -31,7 +31,7 @@ class Main():
     def analise_por_assessor(*self):
         if 'Access-Token' not in request.headers.keys(): return Response("Token não informado", 400, mimetype='text/plain')       
         token: str = request.headers.get('Access-Token')
-        worker: analise_por_assessor = analise_por_assessor()
+        worker: AnaliseAssessor = AnaliseAssessor()
 
         return worker.analise_assessor(token)
 
