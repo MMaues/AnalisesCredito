@@ -24,7 +24,7 @@ class Main():
     
         worker: AnaliseCliente = AnaliseCliente()
 
-        return worker.analise_cliente(token, id_user)
+        return worker.analise_por_cliente(token, id_user)
 
 
     @app.route("/api/v1/Query/AnalisePorAssessor", methods=["GET"])       
